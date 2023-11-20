@@ -1,6 +1,7 @@
 package com.betrybe.sistemadevotacao;
 
 /**
+ * {@summary Candidate.}
  * Pessoa candidata.
  */
 public class PessoaCandidata extends Pessoa {
@@ -20,9 +21,15 @@ public class PessoaCandidata extends Pessoa {
 
   int votos = 0;
 
+  /**
+   * {@summary Candidate.}
+   *
+   * @param nome Candidate's name
+   *
+   * @param numero Candidate's number
+   */
   public PessoaCandidata(String nome, int numero) {
     this.numero = numero;
-    this.votos = 0;
     this.nome = nome;
   }
 
