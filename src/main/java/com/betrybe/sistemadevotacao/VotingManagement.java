@@ -55,6 +55,7 @@ public class VotingManagement implements VotingManagementInterface {
     for (Elector elector : electors) {
       if (elector.getCpf().equals(cpf)) {
         System.out.println("Elector already registered!");
+        return;
       }
     }
     Elector newElector = new Elector(name, cpf);
