@@ -7,6 +7,11 @@ import java.util.Scanner;
  */
 public class Principal {
 
+  /**
+   * Main method.
+   *
+   * @param args Command-line arguments.
+   */
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     GerenciamentoVotacao votingManagement = new GerenciamentoVotacao();
