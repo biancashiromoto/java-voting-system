@@ -34,7 +34,7 @@ Este é um sistema de votação simples desenvolvido utilizando Java. Ele permit
 
 ## 🖼️ Screenshots
 <div style="display:flex;">
-  <img src="./screenshots/screenshot-01.png" alt="Dark mode" height="450" width="375" />
+  <img src="./screenshots/screenshot-01.png" alt="Dark mode" height="500" width="415" />
 </div>
 
 ## 🛠️ Technologies used/Tecnologias utilizadas
@@ -42,7 +42,7 @@ Este é um sistema de votação simples desenvolvido utilizando Java. Ele permit
 [![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)]()
 
 ### Tools and platforms/Ferramentas e plataformas:
+[![ApacheMaven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)]()
 [![Git](https://img.shields.io/badge/Git-E44C30?style=for-the-badge&logo=git&logoColor=white)]()
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)]()
 [![IntelliJ](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)]()
-[![Maven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)]()
