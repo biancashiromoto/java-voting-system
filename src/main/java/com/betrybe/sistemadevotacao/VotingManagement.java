@@ -3,14 +3,35 @@ package com.betrybe.sistemadevotacao;
 import java.util.ArrayList;
 
 /**
- * GerenciamentoVotacao.
+ * Represents the voting management system.
+ * This class implements the VotingManagementInterface and includes additional information:
+ * - A list of candidates;
+ * - A list of electors;
+ * - A list containing the CPFs of the electors who already voted.
+ *
+ * @see VotingManagementInterface
  */
 public class VotingManagement implements VotingManagementInterface {
 
+  /**
+   * A list of registered candidates.
+   */
   private ArrayList<Candidate> candidates = new ArrayList<Candidate>();
+  /**
+   * A list of registered electors.
+   */
   private ArrayList<Elector> electors = new ArrayList<Elector>();
+  /**
+   * A list containing the CPFs of the electors who already voted.
+   */
   private ArrayList<String> countedCpfs = new ArrayList<String>();
 
+  /**
+   * Register a new candidate and adds their information to the candidates list. The candidate's number must not be in the candidates list.
+   *
+   * @param name The candidate's name.
+   * @param number The candidate's number.
+   */
   @Override
   public void registerCandidate(String name, int number) {
     for (Candidate candidate : candidates) {
@@ -23,6 +44,12 @@ public class VotingManagement implements VotingManagementInterface {
     candidates.add(newCandidate);
   }
 
+  /**
+   * Register a new elector and adds their information to the electors list. The elector's CPF must not be in the electors list.
+   *
+   * @param name The elector's name.
+   * @param cpf The elector's cpf.
+   */
   @Override
   public void registerElector(String name, String cpf) {
     for (Elector elector : electors) {
@@ -34,20 +61,29 @@ public class VotingManagement implements VotingManagementInterface {
     electors.add(newElector);
   }
 
+  /**
+   * Register a vote to the candidate using the elector's CPF if the elector's CPF is not already registered in the countedCpfs list.
+   *
+   * @param electorsCpf The elector's CPF.
+   * @param candidatesNumber The candidate's number.
+   */
   @Override
-  public void vote(String electorsCpf, int cadidatesNumber) {
+  public void vote(String electorsCpf, int candidatesNumber) {
     if (countedCpfs.contains(electorsCpf)) {
       System.out.println("Elector already voted!");
     }
 
     for (Candidate candidate : candidates) {
-      if (candidate.getNumber() == cadidatesNumber) {
+      if (candidate.getNumber() == candidatesNumber) {
         candidate.countVote();
       }
     }
     countedCpfs.add(electorsCpf);
   }
 
+  /**
+   * Prints the voting results.
+   */
   @Override
   public void displayResults() {
     int totalVotes = countedCpfs.size();
