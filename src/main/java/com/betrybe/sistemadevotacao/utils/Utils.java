@@ -5,17 +5,21 @@ import java.util.Scanner;
 public class Utils {
   public static int getIntInput() {
     Scanner scanner = new Scanner(System.in);
-    int input = 0;
-    boolean isValidInput = false;
+    boolean isInvalidInput = true;
+    int response = 0;
 
-    while(!isValidInput) {
+    while (isInvalidInput) {
       try {
-        input = Integer.parseInt(scanner.nextLine());
-        isValidInput = true;
+        response = Integer.parseInt(scanner.nextLine());
+        isInvalidInput = false;
       } catch (NumberFormatException e) {
-        System.out.println("Please enter a valid number.");
+        System.out.println("""
+            _________________________________________________
+            Please, enter a valid number.
+            _________________________________________________""");
+        continue;
       }
     }
-    return input;
+    return response;
   }
 }

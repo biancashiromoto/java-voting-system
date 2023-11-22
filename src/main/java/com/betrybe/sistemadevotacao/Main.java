@@ -3,21 +3,26 @@ package com.betrybe.sistemadevotacao;
 import java.util.Scanner;
 
 /**
- * Principal.
+ * The main class for the voting system.
  */
 public class Main {
-
   /**
-   * Main method.
+   * The main method of the voting system.
    *
    * @param args Command-line arguments.
    */
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     VotingManagement votingManagement = new VotingManagement();
+
+    registerCandidate(scanner, votingManagement);
+    registerElector(scanner, votingManagement);
+    conductVoting(scanner, votingManagement);
+  }
+
+
+  public static void registerCandidate(Scanner scanner, VotingManagement votingManagement) {
     boolean candidateRegister = true;
-    boolean electorRegister = false;
-    boolean voting = false;
 
     while (candidateRegister) {
       System.out.println("""
@@ -36,10 +41,12 @@ public class Main {
         votingManagement.registerCandidate(name, number);
       } else {
         candidateRegister = false;
-        electorRegister = true;
       }
     }
+  }
 
+  public static void registerElector(Scanner scanner, VotingManagement votingManagement) {
+    boolean electorRegister = true;
     while (electorRegister) {
       System.out.println("""
           Register new elector?
@@ -56,10 +63,12 @@ public class Main {
         votingManagement.registerElector(name, cpf);
       } else {
         electorRegister = false;
-        voting = true;
       }
     }
+  }
 
+  public static void conductVoting(Scanner scanner, VotingManagement votingManagement) {
+    boolean voting = true;
     while (voting) {
       System.out.println("""
           Enter the corresponding number:
@@ -94,7 +103,7 @@ public class Main {
           voting = false;
           break;
         default:
-          break;
+          System.out.println("Invalid option. Please, enter a valid number.");
       }
     }
   }
