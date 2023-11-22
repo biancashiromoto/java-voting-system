@@ -36,7 +36,10 @@ public class VotingManagement implements VotingManagementInterface {
   public void registerCandidate(String name, int number) {
     for (Candidate candidate : candidates) {
       if (candidate.getNumber() == number) {
-        System.out.println("Candidate's number already used!");
+        System.out.println("""
+            _________________________________________________
+            There is already a candidate registered under this number.
+            _________________________________________________""");
         return;
       }
     }
@@ -54,7 +57,10 @@ public class VotingManagement implements VotingManagementInterface {
   public void registerElector(String name, String cpf) {
     for (Elector elector : electors) {
       if (elector.getCpf().equals(cpf)) {
-        System.out.println("Elector already registered!");
+        System.out.println("""
+            _________________________________________________
+            There is already an elector registered under this CPF.
+            _________________________________________________""");
         return;
       }
     }
@@ -71,15 +77,33 @@ public class VotingManagement implements VotingManagementInterface {
   @Override
   public void vote(String electorsCpf, int candidatesNumber) {
     if (countedCpfs.contains(electorsCpf)) {
-      System.out.println("Elector already voted!");
+      System.out.println("""
+            _________________________________________________
+            This elector has already voted.
+            _________________________________________________""");
+      return;
     }
 
+    boolean candidateFound = false;
     for (Candidate candidate : candidates) {
       if (candidate.getNumber() == candidatesNumber) {
         candidate.countVote();
+        candidateFound = true;
+        break;
       }
     }
-    countedCpfs.add(electorsCpf);
+    if (!candidateFound) {
+      System.out.println("""
+            _________________________________________________
+            There is no candidate registered under that number.
+            _________________________________________________""");
+    } else {
+      countedCpfs.add(electorsCpf);
+      System.out.println("""
+          _________________________________________________
+          Vote successfully registered!
+          _________________________________________________""");
+    }
   }
 
   /**
@@ -92,13 +116,15 @@ public class VotingManagement implements VotingManagementInterface {
     if (totalVotes == 0) {
       System.out.println("There must be at least one vote.");
     }
+    System.out.println("_________________________________________________");
     for (Candidate candidate : candidates) {
       double percentage = ((double) candidate.getVotes() / totalVotes) * 100;
       System.out.printf(
-          "Name: %s - %s votes ( %s%% )%n",
+          "%s | %s votes ( %s%% )%n",
           candidate.getName(), candidate.getVotes(), Math.round(percentage)
       );
     }
     System.out.printf("Total votes: %s%n", totalVotes);
+    System.out.println("_________________________________________________");
   }
 }
