@@ -117,14 +117,16 @@ public class VotingManagement implements VotingManagementInterface {
       System.out.println("There must be at least one vote.");
     }
     System.out.println("_________________________________________________");
+    System.out.printf("| %-12s | %-8s | %-6s |%n", "CANDIDATO", "VOTOS", "PERCENT");
+    System.out.println("_________________________________________________");
+
     for (Candidate candidate : candidates) {
       double percentage = ((double) candidate.getVotes() / totalVotes) * 100;
-      System.out.printf(
-          "%s | %s votes ( %s%% )%n",
-          candidate.getName(), candidate.getVotes(), Math.round(percentage)
-      );
+      System.out.printf("| %-12s | %-8d | %-6s%% |%n",
+          candidate.getName(), candidate.getVotes(), Math.round(percentage));
     }
-    System.out.printf("Total votes: %s%n", totalVotes);
+
+    System.out.printf("| %-12s | %-8s | %-6s |%n ", "Total votes", totalVotes, "100");
     System.out.println("_________________________________________________");
   }
 }
