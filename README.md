@@ -34,7 +34,7 @@ Este é um sistema de votação simples desenvolvido utilizando Java. Ele permit
 
 ## 🖼️ Screenshots
 <div style="display:flex;">
-  <img src="./screenshots/screenshot-01.png" alt="Dark mode" height="300" width="250" />
+  <img src="./screenshots/screenshot-01.png" alt="Dark mode" height="450" width="375" />
 </div>
 
 ## 🛠️ Technologies used/Tecnologias utilizadas
